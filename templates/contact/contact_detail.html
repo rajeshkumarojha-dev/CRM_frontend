@@ -1,0 +1,228 @@
+{% extends "home.html" %}
+
+{% block content %}
+<div class="contact-details container-fluid p-3 mt-5 ">
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center mb-3 mt-3">
+        <div class="d-flex align-items-center ms-4">
+            <a href="{{url_for('contact.contact')}}" class="text-decoration-none">
+                <i class="fas fa-arrow-left text-primary me-3 fs-4 mt-1"></i>
+            </a>
+            <h4 class="mb-0 details-main-heading fs-3">Contacts</h4>
+        </div>
+        <div class="d-flex align-items-center">
+            <button class="btn btn-light me-2 border rounded"><i class="fas fa-chevron-left "></i></button>
+            <span class="details-main-heading">04 of 16</span>
+            <button class="btn btn-light ms-2 border rounded"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="row">
+        <!-- Left Sidebar -->
+        <div class="col-lg-3 col-md-3 details-sidebar light-text">
+            <div class="card mb-3 border ">
+                <div class="card-body details">
+                    <div class="d-flex align-items-center position-relative mb-3">
+                        <img src="/static/Images/profile.png" alt="Profile" class="profile rounded me-3">
+                        <div>
+                            <h5 class="mb-2 fs-6 fw-bold headings">Paresh Mohanty contact</h5>
+                            <p class="mb-0 headings"> UI/UX Designer</p>
+                        </div>
+                        <div>
+                            <i class="fi fi-rr-cross-circle details-close"></i>
+                        </div>
+                    </div>
+                    
+                    <h6 class="border-top pt-3 mb-3 fw-bold fs-6">Basic Information</h6>
+                    
+                    <div class="mb-2">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-envelope me-3"></i>
+                            <span>paresh@gmail.com</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-phone me-3"></i>
+                            <span>+91 1234567890</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-building me-3"></i>
+                            <span>EA Tech Corporations Pvt Ltd</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-map-marker-alt me-3"></i>
+                            <span>Beherasahi, Nayapali, Bhubaneswar, Odisha, India, 751001</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-calendar me-3"></i>
+                            <span>08 March 2025, 10:00 am</span>
+                        </div>
+                    </div>
+
+                    <h6 class="fw-bold mb-3 mt-4">Other Information</h6>
+                    <div class="row mb-2">
+                        <div class="col-6">Source:-</div>
+                        <div class="col-6 fw-bold">Social Media</div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-6">Referred By:-</div>
+                        <div class="col-6 fw-bold">Employee</div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-6">Relationship:-</div>
+                        <div class="col-6 fw-bold">Friends</div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-6">Date of Birth:-</div>
+                        <div class="col-6 fw-bold">26/03/2001</div>
+                    </div>
+
+                    <h6 class="mb-3 mt-4 fw-bold">Social Information</h6>
+                    <div class="d-flex gap-2 mb-3">
+                        <a href="#" class="social-icon instagram"><img src="/static/Images/instagram.png" alt="instagram"></a>
+                        <a href="#" class="social-icon facebook"><img src="/static/Images/facebook.png" alt="facebook"></a>
+                        <a href="#" class="social-icon linkedin"><img src="/static/Images/linkedin.png" alt="linkedin"></a>
+                        <a href="#" class="social-icon threads"><img src="/static/Images/Thread.png" alt="Thread"></a>
+                        <a href="#" class="social-icon twitter"><img src="/static/Images/twitter.png" alt="twitter"></a>
+                        <a href="#" class="social-icon globe"><img src="/static/Images/website.png" alt="website"></a>
+                    </div>
+
+                    <h6 class="mb-3 mt-4 fw-bold">Company</h6>
+                    <div class="d-flex align-items-center mb-3">
+                        <a href="" class='d-flex align-item-center text-decoration-none' >
+                            <div class="company-logo me-3">
+                                <img src="/static/Images/google.png" alt="google" style="width: 40px; height:40px">
+                            </div>
+                            <div class="light-text">
+                                <h6 class="mb-0 ">Google</h6>
+                                <small class="">www.google.com</small>
+                            </div>
+                        </a>
+                    </div>
+
+                    <h6 class="mb-3 mt-4 fw-bold">Settings</h6>
+
+                    <div class="container mt-2">
+                        <div class="d-flex flex-column">
+                            <a href="#" class="d-flex align-items-center mb-2 text-decoration-none">
+                                <p class="mb-0 d-flex align-items-center">
+                                    <i class="fas fa-share me-2"></i> Share Company
+                                </p>
+                            </a>
+                            <a href="#" class="d-flex align-items-center mb-2 text-decoration-none">
+                                <p class="mb-0 d-flex align-items-center">
+                                    <i class="fi fi-rr-star me-2"></i> Add to Favourite
+                                </p>
+                            </a>
+                            <a href="#" class="d-flex align-items-center text-decoration-none text-danger">
+                                <p class="mb-0 d-flex align-items-center">
+                                    <i class="fas fa-trash-alt me-2"></i> Delete Contact
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Content Area -->
+        <div class="col-lg-9 col-md-12">
+            <div class="heading-scroll">
+                <div class="detail-headings border d-flex justify-content-between align-item-center mb-2 p-3 shadow-sm rounded">
+                    <div class="detail-menubar">
+                        <i class="fi fi-rr-apps details-menu"></i>
+                    </div>
+                   <!-- Left Side: Star & User Friends -->
+                    <div class="d-flex">
+                        <a href="#" class="btn btn-outline-warning me-2">
+                            <i class="fas fa-star"></i>
+                            <p class="d-inline mb-0" style='font-size:12px;'></p>
+                        </a>
+                        <a href="#" class="btn btn-outline-primary me-2">
+                            <i class="fas fa-user-friends"></i>
+                            <p class="d-inline mb-0" style='font-size:12px;'></p>
+                        </a>
+                    </div>
+                
+                    <!-- Right Side: Other Buttons -->
+                    <div class="d-flex ms-auto align-items-center">
+                        <a href="#" class="btn btn-outline-secondary me-2" style="font-size:12px;">
+                            <i class="fi fi-rr-copy"></i>
+                            <p class="d-inline mb-0">Duplicate</p>
+                        </a>
+                        <a href="#" class="btn btn-outline-secondary me-2" style="font-size:12px;">
+                            <i class="fi fi-rr-marker"></i>
+                            <p class="d-inline mb-0">Map</p>
+                        </a>
+                        <a href="#" class="btn btn-outline-secondary me-2" style="font-size:12px;">
+                            <i class="fi fi-rr-clip"></i>
+                            <p class="d-inline mb-0">Attach</p>
+                        </a>
+                        <div class="dropdown me-2">
+                            <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" style="font-size:12px;">
+                                <i class="fi fi-rr-download me-1"></i>
+                                <p class="d-inline mb-0">Export</p>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">PDF</a></li>
+                                <li><a class="dropdown-item" href="#">Excel</a></li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn btn-primary me-2" style="font-size:12px;">
+                            <i class="fas fa-envelope"></i>
+                            <p class="d-inline mb-0">Send Email</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card shadow-sm">
+                <div class="card-body border">
+                    <!-- Action Buttons -->
+                    
+                     <!-- Main Navigation Tabs -->
+                    <div class="heading-scroll">
+                        <div class="detail-headings">
+                            <ul class="nav contact-detail-nav-tabs d-flex justify-content-evenly">
+                                <li class="contact-detail-nav-item">
+                                    <a class="contact-detail-nav-link fw-bold text-decoration-none {% if request.endpoint == 'contact.contact_activity' %}active{% endif %}" href="{{ url_for('contact.contact_activity') }}">Activities</a>
+                                </li>
+                                <li class="contact-detail-nav-item">
+                                    <a class="contact-detail-nav-link fw-bold text-decoration-none {% if request.endpoint == 'contact.contact_opportunity' %}active{% endif %}" href="{{ url_for('contact.contact_opportunity') }}">Opportunities</a>
+                                </li>
+                                <li class="contact-detail-nav-item">
+                                    <a class="contact-detail-nav-link fw-bold text-decoration-none {% if request.endpoint == 'contact.contact_history' %}active{% endif %}" href="{{ url_for('contact.contact_history') }}">History</a>
+                                </li>
+                                <li class="contact-detail-nav-item">
+                                    <a class="contact-detail-nav-link fw-bold text-decoration-none {% if request.endpoint == 'contact.contact_notes' %}active{% endif %}" href="{{ url_for('contact.contact_notes') }}">Notes</a>
+                                </li>
+                                <li class="contact-detail-nav-item">
+                                    <a class="contact-detail-nav-link fw-bold text-decoration-none {% if request.endpoint == 'contact.contact_document' %}active{% endif %}" href="{{ url_for('contact.contact_document') }}">Documents</a>
+                                </li>
+                                <li class="contact-detail-nav-item">
+                                    <a class="contact-detail-nav-link fw-bold text-decoration-none {% if request.endpoint == 'contact.contact_group' %}active{% endif %}" href="{{ url_for('contact.contact_group') }}">Group</a>
+                                </li>
+                                <li class="contact-detail-nav-item">
+                                    <a class="contact-detail-nav-link fw-bold text-decoration-none {% if request.endpoint == 'contact.contact_company' %}active{% endif %}" href="{{ url_for('contact.contact_company') }}">Company</a>
+                                </li>
+                            </ul>
+                            
+                            
+                        </div>
+                    </div>
+                    <!-- Activities Section -->
+                    
+                    <!-- contact Tables -->
+                    {% block contact_table %}
+
+
+                    {% endblock %}
+                        
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

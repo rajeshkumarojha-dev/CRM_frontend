@@ -1,0 +1,169 @@
+{% extends "home.html" %}
+
+{% block content %}
+<div class="contact-details container-fluid p-3 mt-5 ">
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center mb-3 mt-3">
+        <div class="d-flex align-items-center ms-4">
+            <a href="{{url_for('group.group')}}" class="text-decoration-none mt-1">
+                <i class="fas fa-arrow-left text-primary me-3 fs-4"></i>
+            </a>
+            <h4 class="mb-0 fs-4 headings">Groups</h4>
+        </div>
+        <div class="d-flex align-items-center">
+            <button class="btn btn-light me-2 border rounded"><i class="fas fa-chevron-left "></i></button>
+            <span class="headings">04 of 16</span>
+            <button class="btn btn-light ms-2 border rounded"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="row">
+        <!-- Left Sidebar -->
+        <div class="col-lg-3 col-md-3 details-sidebar">
+            <div class="card mb-3">
+                <div class="card-body border details">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="/static/Images/companylogo.png" alt="Profile" class="profile rounded me-3">
+                        <div>
+                            <h5 class="mb-2 fs-6 fw-bold headings">Paresh Mohanty group</h5>
+                            <p class="details-main-heading mb-0 headings"> UI/UX Designer</p>
+                        </div>
+                        <div>
+                            <i class="fi fi-rr-cross-circle details-close mt-3 me-3"></i>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <h6 class="mb-3 mt-3 headings ">Settings</h6>
+
+                    <div class="container mt-2">
+                        <ul class="list-unstyled">
+                            <li class="d-flex align-items-center mb-2">
+                                <a href="#" class="text-decoration-none d-flex align-items-center details-main-heading">
+                                    <i class="fas fa-share me-2"></i> <span>Share Company</span>
+                                </a>
+                            </li>
+                            <li class="d-flex align-items-center mb-2">
+                                <a href="#" class="text-decoration-none d-flex align-items-center details-main-heading">
+                                    <i class="fi fi-rr-star me-2"></i> <span>Add to Favourite</span>
+                                </a>
+                            </li>
+                            <li class="d-flex align-items-center">
+                                <a href="#" class="text-decoration-none text-danger d-flex align-items-center">
+                                    <i class="fas fa-trash-alt me-2"></i> <span>Delete Group</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Content Area -->
+        <div class="col-lg-9 col-md-12 col-12">
+            <div class="heading-scroll ">
+                <div class="detail-headings border d-flex justify-content-between align-items-center mb-3 p-2 shadow-sm rounded">
+                    <div class="detail-menubar">
+                        <i class="fi fi-rr-apps details-menu"></i>
+                    </div>
+                    <!-- Left Side: Star & User Friends -->
+                    <div class="d-flex">
+                        <a href="#" class="btn btn-outline-warning me-2">
+                            <i class="fas fa-star"></i>
+                            <p class="d-inline mb-0" style='font-size:12px'></p>
+                        </a>
+                        <a href="#" class="btn btn-outline-primary me-2">
+                            <i class="fas fa-user-friends"></i>
+                            <p class="d-inline mb-0" style='font-size:12px'></p>
+                        </a>
+                    </div>
+        
+                    <!-- Right Side: Other Buttons & Add Group -->
+                    <div class="d-flex align-items-center ms-auto">
+                        <button class="btn btn-outline-secondary me-2 d-flex align-items-center py-1" style="font-size: 12px;">
+                            <i class="fi fi-rr-calendar-pen me-1 mt-1"></i>
+                            <p class="d-inline mb-0">Activity</p>
+                        </button>
+                        <button class="btn btn-outline-secondary me-2 d-flex align-items-center py-1" style="font-size: 12px;">
+                            <i class="fi fi-rr-overview me-1 mt-1"></i>
+                            <p class="d-inline mb-0">Lookup</p>
+                        </button>
+                        <button class="btn btn-outline-secondary me-2 d-flex align-items-center py-1" style="font-size: 12px;">
+                            <i class="fi fi-rr-clip me-1 mt-1"></i>
+                            <p class="d-inline mb-0">Attach</p>
+                        </button>
+                        <div class="dropdown me-2">
+                            <button class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center py-1"
+                                type="button" data-bs-toggle="dropdown" style="font-size: 12px;">
+                                <i class="fi fi-rr-download me-1"></i>
+                                <p class="d-inline mb-0">Export</p>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">PDF</a></li>
+                                <li><a class="dropdown-item" href="#">Excel</a></li>
+                            </ul>
+                        </div>
+                        <a href="{{url_for('group.add_group')}}" class="btn btn-primary ms-2 d-flex align-items-center py-1" style="font-size: 12px;">
+                            <i class="fa-solid fa-plus me-2"></i> Add Group
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="card shadow-sm">
+                <div class="card-body border">
+                    <!-- Action Buttons -->
+                    
+                    <!-- Main Navigation Tabs -->
+                    <div class="heading-scroll" >
+                        <div class="detail-headings">
+                            <ul class="nav contact-detail-nav-tabs d-flex justify-content-evenly w-100">
+                                <li class="contact-detail-nav-item">
+                                    <a class="contact-detail-nav-link fw-bold text-decoration-none {% if request.endpoint == 'group.group_contacts' %}active{% endif %}" href="{{ url_for('group.group_contacts') }}">Contacts</a>
+                                </li>
+                                <li class="contact-detail-nav-item">
+                                    <a class="contact-detail-nav-link fw-bold text-decoration-none {% if request.endpoint == 'group.group_activity' %}active{% endif %}" href="{{ url_for('group.group_activity') }}">Activities</a>
+                                </li>
+                                <li class="contact-detail-nav-item">
+                                    <a class="contact-detail-nav-link fw-bold text-decoration-none {% if request.endpoint == 'group.group_opportunities' %}active{% endif %}" href="{{ url_for('group.group_opportunities') }}">Opportunities</a>
+                                </li>
+                                <li class="contact-detail-nav-item">
+                                    <a class="contact-detail-nav-link fw-bold text-decoration-none {% if request.endpoint == 'group.group_history' %}active{% endif %}" href="{{ url_for('group.group_history') }}">History</a>
+                                </li>
+                                <li class="contact-detail-nav-item">
+                                    <a class="contact-detail-nav-link fw-bold text-decoration-none {% if request.endpoint == 'group.group_notes' %}active{% endif %}" href="{{ url_for('group.group_notes') }}">Notes</a>
+                                </li>
+                                <li class="contact-detail-nav-item">
+                                    <a class="contact-detail-nav-link fw-bold text-decoration-none {% if request.endpoint == 'group.group_documents' %}active{% endif %}" href="{{ url_for('group.group_documents') }}">Documents</a>
+                                </li>
+                                <li class="contact-detail-nav-item">
+                                    <a class="contact-detail-nav-link fw-bold text-decoration-none {% if request.endpoint == 'group.group_access' %}active{% endif %}" href="{{ url_for('group.group_access') }}">Group Access</a>
+                                </li>
+                            </ul>
+                            
+                            
+                        </div>
+                    </div>
+
+                    <!-- Activities Section -->
+                            
+                        
+                        <!-- Groups Tables -->
+                        {% block group_table %}
+
+
+                        {% endblock %}
+                        
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

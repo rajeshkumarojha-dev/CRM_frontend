@@ -1,0 +1,40 @@
+{% extends "home.html" %}
+
+{% block content %}
+<!-- Contacts Section -->
+
+<div class="form-container mx-3 shadow-sm">
+    <div class="form-content">
+        <div class="header-content d-flex justify-content-between">
+            <div class="header-container d-flex">
+                <div class="header me-4">
+                    <h4 class="fs-2 fw-bold me-4">Add Contact</h4>
+                </div>
+                
+                <div class="custom-nav-container">
+                    <ul class="custom-nav-tabs">
+                        {% for item in contact_form_nav_items %}
+                            <li class="custom-nav-item">
+                                <a class="custom-nav-link {% if request.path == item.link %}active{% endif %}" href="{{ item.link }}">
+                                    {{ item.name }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                
+            </div>
+            <div class="custom-close">
+                <a href="{{ url_for('contact.contact') }}" class="close-btn bg-primary text-white px-2 py-1 rounded">
+                    <i class="fas fa-times"></i>
+                </a>
+            </div>
+        </div>
+        <hr style="margin-top:-10px;">
+        {% block contact_form %}
+        
+        {% endblock  %}
+
+    </div>
+</div>
+{% endblock %}

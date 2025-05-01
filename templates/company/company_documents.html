@@ -1,0 +1,71 @@
+{% extends "company/company_details.html" %}
+
+{% block company_table %}
+
+
+<!-- documents Section -->
+<div class="heading-scroll">
+    <div class="detail-headings">
+        <div class="pt-3">
+            <div class="contact-content-dropdown d-flex justify-content-between px-2">
+                <!-- Left: Heading -->
+                <div class='d-flex align-item-center'>
+                    <h5 class='fw-bold ms-2 headings'>Documents</h5>
+                </div>
+            
+                <!-- Right: Filter Buttons and Dropdowns -->
+                <div class="d-flex">
+            
+                    <!-- Dropdown Filters -->
+                    <div class="container">
+                        <div class="d-flex gap-2">
+                            <div class="dropdown">
+                                <button class="btn btn-outline-secondary d-flex align-items-center" type="button" data-bs-toggle="dropdown" style="font-size:12px">
+                                    Types
+                                    <i class="fas fa-chevron-down ms-2"></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Type 1</a></li>
+                                    <li><a class="dropdown-item" href="#">Type 2</a></li>
+                                    <li><a class="dropdown-item" href="#">Type 3</a></li>
+                                </ul>
+                            </div>
+            
+                            <div class="dropdown">
+                                <button class="btn btn-outline-secondary d-flex align-items-center" type="button" data-bs-toggle="dropdown" style="font-size:12px">
+                                    Priorities
+                                    <i class="fas fa-chevron-down ms-2"></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">High</a></li>
+                                    <li><a class="dropdown-item" href="#">Medium</a></li>
+                                    <li><a class="dropdown-item" href="#">Low</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <hr>
+        <!-- comapny-Documents-Table -->
+
+        <div class="form height">
+            <div class="table-responsive px-4">
+                <table class="table table-hover">
+                    <thead>
+                        <h1>Documents table</h1>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>     
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

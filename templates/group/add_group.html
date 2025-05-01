@@ -1,0 +1,26 @@
+{% extends "home.html" %}
+
+{% block content %}
+
+<div class="form-container mx-3 shadow-sm">
+    <div class="form-content">
+        <div class="header-content d-flex justify-content-between">
+            <div class="header-container d-flex">
+                <div class="header me-4">
+                    <h4 class="fs-2 fw-bold">Add group</h4>
+                </div>
+            </div>
+            <div class="custom-btn">
+                <a href="{{ url_for('group.group') }}" class="close-btn bg-primary text-white px-2 py-1 rounded">
+                    <i class="fas fa-times"></i>
+                </a>
+            </div>
+        </div>
+        <hr style="margin-top:-10px">
+
+        <!-- Add Group form -->
+        <h1>Add Group Form</h1>
+    </div>
+</div>
+
+{% endblock %}

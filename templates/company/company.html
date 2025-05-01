@@ -1,0 +1,163 @@
+{% extends "home.html" %}
+
+{% block content %}
+<!-- Company Section -->
+
+<div class="contacts-section p-4 rounded my-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div class="page-header d-flex align-items-center p-2">
+            <h5 class="mb-0 fs-4">Companies</h5>
+        </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="background-toggle action border rounded shadow-sm">
+        <div class="filter-scroll action-buttons d-flex flex-wrap justify-content-between gap-2 mb-4 pt-4 px-4">
+            <!-- Left Side: Sort & Filter -->
+            <div class="responsive-filter d-flex justify-content-between align-item-center w-100">
+                <div class="d-flex me-1">
+                    <button class="filter-form-button btn btn-outline-secondary d-flex align-items-center w-100" style="font-size:12px;">
+                        <i class="fi fi-rr-filter me-2 mt-1"></i>
+                        Filter
+                    </button>
+                </div>
+        
+                <!-- Right Side: Other Buttons -->
+                <div class="d-flex gap-2">
+                    <button class="filter-form-button btn btn-outline-secondary d-flex align-items-center me-2" style="font-size:12px;">
+                        <i class="fi fi-rr-calendar-lines me-2 mt-1"></i>
+                        03/02/2025 - 03/03/2025
+                    </button>
+        
+                    <button class="filter-form-button btn btn-outline-secondary d-flex align-items-center me-2" style="font-size:12px;">
+                        <i class="fi fi-rr-calendar-lines-pen me-2 mt-1"></i>
+                        Add Activity
+                    </button>
+        
+                    <button class="filter-form-button btn btn-outline-secondary d-flex align-items-center me-2" style="font-size:12px;">
+                        <i class="fi fi-rr-copy me-2 mt-1"></i>
+                        Duplicate
+                    </button>
+        
+                    <button class="filter-form-button btn btn-outline-secondary d-flex align-items-center me-2" style="font-size:12px;">
+                        <i class="fi fi-rr-marker me-2 mt-1"></i>
+                        Map
+                    </button>
+        
+                    <button class="filter-form-button btn btn-outline-secondary d-flex align-items-center me-2" style="font-size:12px;">
+                        <i class="fi fi-rr-clip me-2 mt-1"></i>
+                        Attach
+                    </button>
+        
+                    <div class="dropdown me-2 export-dropdown">
+                        <button class="btn btn-outline-secondary d-flex align-items-center dropdown-toggle p-2" style="font-size:12px;">
+                            <i class="fi fi-rr-download me-2"></i> Export
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Export as PDF</a></li>
+                            <li><a class="dropdown-item" href="#">Export as CSV</a></li>
+                            <li><a class="dropdown-item" href="#">Export as Excel</a></li>
+                        </ul>
+                    </div>
+        
+                    <a href="{{url_for('company.company_basic_info')}}" class="button-bg filter-button" style="font-size:14px;">
+                        <i class="fa-solid fa-plus me-2"></i> Add company
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <hr>
+        <!-- Company Table -->
+        <div class="table-responsive" style="white-space: nowrap;">
+            <table class="table table-hover" id="companyTable">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            <input class="form-check-input" type="checkbox">
+                        </th>
+                        <th scope="col"></th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Company</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Department</th>
+                        <th scope="col">Website</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Status</th>
+
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <!-- Table Data -->
+                    {% for i in range(20) %}
+                    <tr>
+                        <td>
+                            <input class="form-check-input" type="checkbox">
+                        </td>
+                        <td>
+                            <i class="fa-solid fa-star text-warning"></i>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <a href="{{ url_for('company.company_activity') }}"><img src="/static/Images/companylogo.png" class="me-2" alt="Profile" style="width: 40px; height: 30px;">
+                                <span>Paresh Mohanty</span></a>
+                            </div>
+                        </td>
+                        <td>EA Tech Corporation</td>
+                        <td>paresh@eatechpvtltd.com</td>
+                        <td>+91 1234567890</td>
+                        <td>UI/UX Designer</td>
+                        <td>Information Technology</td>
+                        <td>www.google.com</td>
+                        <td>India</td>
+                        <td>India</td>
+                        <td>India</td>
+                        <td>India</td>
+                        <td>India</td>
+                        <td>India</td>
+                        <td>India</td>
+                        <td>India</td>
+                        <td>India</td>
+                        <td>India</td>
+                        <td>India</td>
+                        <td>India</td>
+                        <td>India</td>
+                        <td>India</td>
+                        <td>India</td>
+                        <td>India</td>
+
+                        <td><span class="badge bg-success">Active</span></td>
+                        <td>
+                            <i class="fa-solid fa-ellipsis-v"></i>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

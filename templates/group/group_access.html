@@ -1,0 +1,51 @@
+{% extends "group/group_details.html" %}
+
+{% block group_table %}
+
+<!-- group-acess-Table -->
+<div class="heading-scroll">
+    <div class="detail-headings">
+        <div class="pt-3">
+            <div class="contact-content-dropdown d-flex justify-content-between px-2">
+                <div class='d-flex align-item-center'>
+                    <h5 class='fw-bold headings'>Group Access</h5>
+                </div>
+                <!-- Filters -->
+                <div class="d-flex">
+                    <div class="me-2">
+                        <button class="btn btn-outline-secondary" type="button">
+                            <p class="mb-0" style='font-size:12px'>
+                                <i class="fi fi-rr-sort-size-up me-2 mt-1"></i>Sort
+                            </p>
+                        </button>
+                    </div>
+                    <div class="me-2">
+                        <button class="btn btn-outline-secondary" type="button">
+                            <p class="mb-0" style='font-size:12px'>
+                                <i class="fi fi-rr-filter me-2 mt-1"></i>Filter
+                            </p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <hr>
+
+        <!-- ========= group Aceess table ======================= -->
+        <div class="form height">
+            <div class="table-responsive px-4">
+                <table class="table table-hover">
+                    <thead>
+                        <h1>Group acess table</h1>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>     
+        </div>
+    </div>
+</div>
+
+{% endblock %}

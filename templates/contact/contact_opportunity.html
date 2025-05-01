@@ -1,0 +1,75 @@
+{% extends "contact/contact_detail.html" %}
+
+{% block contact_table %}
+
+<div class="heading-scroll">
+    <div class="detail-headings">
+        <div class="pt-3">
+                <div class="contact-content-dropdown d-flex justify-content-between px-2">
+                    <div class='d-flex align-item-center'>
+                        <h5 class='fw-bold ms-2 headings'>Opportunity</h5>
+                    </div>
+                    <!-- Filters -->
+                    <div class="d-flex">
+                        <div class="me-2">
+                            <button class="btn btn-outline-secondary" type="button">
+                                <p class="mb-0" style="font-size:12px;">
+                                    Dates <i class="fas fa-chevron-down ms-1"></i>
+                                </p>
+                            </button>
+                        </div>
+                        <div class="me-2">
+                            <button class="btn btn-outline-secondary" type="button">
+                                <p class="mb-0" style="font-size:12px;">
+                                    Status <i class="fas fa-chevron-down ms-1"></i>
+                                </p>
+                            </button>
+                        </div>
+                        <div class="me-2">
+                            <button class="btn btn-outline-secondary" type="button">
+                                <p class="mb-0" style="font-size:12px;">
+                                    Types <i class="fas fa-chevron-down ms-1"></i>
+                                </p>
+                            </button>
+                        </div>
+                        <div class="me-2">
+                            <button class="btn btn-outline-secondary" type="button">
+                                <p class="mb-0" style="font-size:12px;">
+                                    Priorities <i class="fas fa-chevron-down ms-1"></i>
+                                </p>
+                            </button>
+                        </div>
+                    
+                        <div class="ms-auto">
+                            <button class="btn btn-primary">
+                                <a href="/opportunity_form" class="text-white text-decoration-none">
+                                    <p class="mb-0" style="font-size:12px;">
+                                        <i class="fas fa-plus me-1"></i> Add Opportunities
+                                    </p>
+                                </a>
+                            </button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <hr>
+
+        <!-- contact-oppertunity-Table -->
+        
+        <div class="form height">
+            <div class="table-responsive px-4">
+                <table class="table table-hover">
+                    <thead>
+                        <h1>Opportunities table</h1>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>     
+        </div>
+    </div>
+</div>
+
+{% endblock %}

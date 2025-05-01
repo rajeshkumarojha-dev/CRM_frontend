@@ -1,0 +1,81 @@
+{% extends "group/group_details.html" %}
+
+{% block group_table %}
+<!-- group-activity-Table -->
+
+<div class="heading-scroll">
+    <div class="detail-headings">
+        <div class="pt-3">
+            <div class="contact-content-dropdown d-flex justify-content-between px-2">
+                <div class='d-flex align-item-center'>
+                    <h5 class='fw-bold headings'>Activity</h5>
+                </div>
+                <!-- Filters -->
+                <div class="d-flex">
+                    <div class="me-2">
+                        <button class="btn btn-outline-secondary" type="button">
+                            <p class="mb-0" style='font-size:12px'>
+                                <i class="fi fi-rr-sort-size-up me-2 mt-1"></i>Sort
+                            </p>
+                        </button>
+                    </div>
+                    <div class="me-2">
+                        <button class="btn btn-outline-secondary" type="button">
+                            <p class="mb-0" style='font-size:12px'>
+                                <i class="fi fi-rr-filter me-2 mt-1"></i>Filter
+                            </p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <hr>
+
+        <!-- ========= group activities table ======================= -->
+
+        <div class="form height">
+            <div class="table-responsive" style="white-space: nowrap;">
+                <table class="table table-hover data-table-responsive" id="myTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Title</th>
+                            <th>Type</th>
+                            <th>Company</th>
+                            <th>Status</th>
+                            <th>Deadline</th>
+                            <th>Location</th>
+                            <th>Salary</th>
+                            <th>Contact Person</th>
+                            <th>Email</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for i in range(20) %}
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Frontend Intern</td>
+                            <td>Internship</td>
+                            <td>CodeWave</td>
+                            <td><span class="badge bg-success">Applied</span></td>
+                            <td>10/03/2025</td>
+                            <td>Bangalore</td>
+                            <td>₹15,000</td>
+                            <td>Ritika Sharma</td>
+                            <td>ritika@codewave.in</td>
+                            <td>Waiting for HR call</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

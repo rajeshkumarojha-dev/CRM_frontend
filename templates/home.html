@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRM Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Custom CSS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <!-- Flaticon Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap5.css"
+    />
+    <!-- j-query -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.2.2/js/dataTables.bootstrap5.js"></script>
+
+    <script>
+      if (localStorage.getItem("sidebarCollapsed") === "true") {
+        document.documentElement.classList.add("sidebar-collapsed");
+      }
+
+      (function () {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "dark") {
+          document.documentElement.classList.add("dark-mode");
+        } else {
+          document.documentElement.classList.remove("dark-mode");
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="home-container">
+      <!-- Sidebar -->
+      <div class="sidebar" id="sidebar">
+        <!-- Logo -->
+        <div class="logo-container">
+          <div class="logo">
+            <img
+              src="/static/images/white.png"
+              class="logo-img long-logo"
+              alt=""
+            />
+            <img
+              src="/static/images/CRMSquare.png"
+              class="logo-img short-logo"
+              alt=""
+            />
+          </div>
+        </div>
+
+        <!-- Toggle button -->
+        <button class="toggle-btn" id="toggle-btn">
+          <i class="fi fi-rr-angle-small-left"></i>
+        </button>
+
+        <!-- Navigation -->
+        <div class="side-menu">
+          <nav class="nav-menu">
+            <ul>
+              {% for item in nav_items %}
+              <li>
+                <a
+                  href="{{ url_for(item.endpoint) if item.endpoint else '#' }}"
+                  class="nav-item {% if request.endpoint == item.endpoint %}active{% endif %}"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="right"
+                  title="{{ item.name }}"
+                >
+                  <i class="{{ item.icon }}"></i>
+                  <span class="nav-text">{{ item.name }}</span>
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <!-- Top Header -->
+        <div class="top-header mb-4 p-1 w-100">
+          <div class="top-header-content row align-items-center">
+            <div class="menu col-lg-2 col-md-2 col-2">
+              <img src="/static/Images/menu.png" class="nav-icon" alt="" />
+            </div>
+            <div class="col-lg-4 col-md-2 col-sm-8 col-8 mt-2">
+              <div class="search-container">
+                <i class="fa-solid fa-search search-icon"></i>
+                <input
+                  type="text"
+                  class="form-control search-input rounded-1"
+                  placeholder="Search"
+                />
+              </div>
+            </div>
+            <div
+              class="d-flex justify-content-end align-items-center position-fixed mt-1"
+              style="right: 0"
+            >
+              <div class="d-flex align-items-end ms-5">
+                <div class="header-icons align-items-center" id="iconContainer">
+                  {% for icon in icons %}
+                  <a
+                    href="{{ icon.link }}"
+                    class="text-muted mt-1"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="bottom"
+                    title="{{ icon.title }}"
+                  >
+                    <i class="{{ icon.class }} icon-link"></i>
+                  </a>
+                  {% endfor %}
+                </div>
+
+                <div class="menu-icon col-sm-2" id="menuIcon">
+                  <i class="fa-solid fa-bars bars"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--contact section. -->
+        <main class="content-area">{% block content %} {% endblock %}</main>
+      </div>
+    </div>
+
+    <script src="/static/Js/script.js"></script>
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

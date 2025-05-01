@@ -1,0 +1,201 @@
+{% extends "home.html" %}
+
+{% block content %}
+<div class="section container-fluid mt-5 pt-4">
+    <!-- Header with search -->
+        <div class="page-header d-flex align-items-center p-2">
+            <h4 class="mb-0 fs-4 ms-3" >Opportunities</h4>
+        </div>
+
+    <!-- Cards section -->
+    <div class="background-toggle action border opertunity-section p-4 rounded shadow mt-3 ms-3">
+        <div class="opertunity mb-0 mx-1">
+            <div class="position-relative">
+                <!-- Scrollable Cards Container -->
+                <div class="metrics-cards d-flex gap-3 overflow-auto" style="padding-bottom: 10px;">
+                    {% for card in cards %}
+                    <div class="flex-shrink-0 " style="width: 220px; min-width: 220px;">
+                        <div class="card h-100 " >
+                            <div class="opertunity-card Opportunity-card card-body">
+                                <h5 class="card-title mb-3">{{ card.title }}</h5>
+                                <p class="card-text">{{ card.value }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        
+        
+        <hr>
+
+        <!-- Toolbar -->
+        <div class="d-flex px-3 ">
+            <div class="filter-scroll d-flex flex-wrap justify-content-between align-items-center w-100 gap-2">
+                <!-- Left Side: Sort & Filter -->
+                <div class="responsive-filter d-flex justify-content-between align-item-center w-100">
+                    <div class="d-flex">
+                        <button class="filter-form-button btn btn-outline-secondary me-2" style="font-size:12px">
+                            <i class="fi fi-rr-filter"></i>
+                            <p class="d-inline mb-0">Filter</p>
+                        </button>
+                    </div>
+                    
+                    <!-- Right Side: Other Buttons, Export Dropdown & Action Buttons -->
+                    <div class="d-flex">
+                        <button class="filter-form-button btn btn-outline-secondary me-2" style="font-size:12px">
+                            <i class="fi fi-rr-memo-circle-check"></i>
+                            <p class="d-inline mb-0">Lookup</p>
+                        </button>
+                        <button class="filter-form-button btn btn-outline-secondary me-2" style="font-size:12px">
+                            <i class="fi fi-rr-filters"></i>
+                            <p class="d-inline mb-0">Pipeline</p>
+                        </button>
+                        <button class="filter-form-button btn btn-outline-secondary me-2" style="font-size:12px">
+                            <i class="fi fi-rr-box-open"></i>
+                            <p class="d-inline mb-0">Products</p>
+                        </button>
+            
+                        <!-- Export Dropdown -->
+                        <div class="dropdown">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="exportDropdown" 
+                                    data-bs-toggle="dropdown" aria-expanded="false" style="font-size:12px">
+                                <i class="fi fi-rr-download"></i>
+                                <p class="d-inline mb-0">Export</p>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="exportDropdown">
+                                <li><a class="dropdown-item" href="#">PDF</a></li>
+                                <li><a class="dropdown-item" href="#">Excel</a></li>
+                            </ul>
+                        </div>
+            
+                        <!-- Add New Product & Add Opportunities Buttons -->
+                        <div class="d-flex">
+                            <a href="" class="button-bg d-flex filter-button ms-2" style="font-size:12px;" data-bs-toggle="modal" data-bs-target="#addProductModal">
+                                <p class="mb-0"><i class="fas fa-plus me-2"></i>Add New Product</p>
+                            </a>
+                            <a href="{{ url_for('opportunity.opportunity_form') }}" class="button-bg d-flex filter-button ms-2" style="font-size:12px;">
+                                <p class="mb-0"><i class="fas fa-plus me-2"></i>Add Opportunities</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+
+            <!-- Modal -->
+            <div class="modal fade col-md-6" id="addProductModal" data-bs-backdrop="false" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-right">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addProductModalLabel">Add Product</h5>
+                            <button type="button" class="btn-close custom-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="addProductForm" action="{{ url_for('products.add_products') }}" method="POST">
+                                <div class="mb-3">
+                                    <label for="productName" class="form-label">Product Name <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="productName" name="product_name" required>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="item" class="form-label">Item</label>
+                                        <input type="text" class="form-control" id="item" name="item">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="quantity" class="form-label">Quantity</label>
+                                        <input type="number" class="form-control" id="quantity" name="quantity">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="price" class="form-label">Price</label>
+                                        <input type="number" class="form-control" id="price" name="price">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="adjustedPrice" class="form-label">Adjusted Price</label>
+                                        <input type="number" class="form-control" id="adjustedPrice" name="adjusted_price">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="discount" class="form-label">Discount</label>
+                                        <input type="number" class="form-control" id="discount" name="discount">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="subTotal" class="form-label">Sub Total</label>
+                                        <input type="number" class="form-control" id="subTotal" name="sub_total">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="createdDate" class="form-label">Created Date</label>
+                                        <input type="date" class="form-control" id="createdDate" name="created_date">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="status" class="form-label">Status</label>
+                                        <input type="text" class="form-control" id="status" name="status">
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary w-100">Save</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+        <hr>
+        <!-- Table- data -->
+        <div class="table-scroll-hover table-responsive"  style="white-space: nowrap;">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            <input class="form-check-input" type="checkbox">
+                        </th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Company</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Opportunities Name</th>
+                        <th scope="col">Stage</th>
+                        <th scope="col">Days in Stage</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Record Manager</th>
+                        <th scope="col"></th> <!-- Empty column for actions -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input class="form-check-input" type="checkbox">
+                        </td>
+                        <td>Rishi Mohanty</td>
+                        <td>EA Tech Pvt Ltd</td>
+                        <td>Open</td>
+                        <td>New Opportunities</td>
+                        <td>Intial Communication</td>
+                        <td>2</td>
+                        <td>RP 162,200.00</td>
+                        <td>Paresh Mohanty</td>
+                        <td>
+                            <button class="btn btn-sm btn-link text-muted">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+{% endblock  %}

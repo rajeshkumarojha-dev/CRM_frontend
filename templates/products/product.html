@@ -1,0 +1,174 @@
+{% extends "home.html" %}
+
+{% block content %}
+<!-- activity Section -->
+<div class="contacts-section p-4 rounded mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div class="page-header d-flex align-items-center p-2">
+            <h4 class="mb-0 fs-4">Products</h4>
+        </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="background-toggle action border rounded shadow-sm">
+        <div class="filter-scroll action-buttons d-flex flex-wrap justify-content-end gap-2 pt-4 px-4">
+            <div class="responsive-filter d-flex justify-content-between align-item-center w-100">
+                <!-- Left Side: Sort & Filter -->
+                <div class="d-flex">
+                    {% for button in products_buttons[:1] %}
+                    <a href="#" 
+                        class="filter-form-button btn btn-outline-secondary d-flex align-items-center mt-1 me-2"
+                        style="font-size:12px;">
+                        <i class="{{ button.icon }} me-2"></i>
+                        <span>{{ button.text }}</span>
+                    </a>
+                    {% endfor %}
+                </div>
+            
+                <!-- Right Side: Other Buttons -->
+
+                
+                <div class="d-flex">
+                    {% for button in products_buttons[1:] %}
+                        {% if button.text == "Add Products" %}
+                            <!-- Add Products should be an <a> tag -->
+                                <a href="" class="button-bg d-flex filter-button ms-2 mt-1" style="font-size:12px;" data-bs-toggle="modal" data-bs-target="#addProductModal" >
+                                    <p class="mb-0"><i class="{{ button.icon }} me-2"></i>{{ button.text }}</p>
+                                </a>   
+                            
+                        {% else %}
+                            <!-- Other buttons remain as <button> -->
+                            <button class="filter-form-button btn {% if button.primary %} btn-primary text-white{% else %}btn-outline-secondary{% endif %}
+                                d-flex align-items-center mt-1 me-2"
+                                style="font-size:12px;">
+                                
+                                <i class="{{ button.icon }} me-2"></i>
+                                <span>{{ button.text }}</span>
+                                
+                                {% if button.dropdown %}
+                                    <i class="fa-solid fa-chevron-down ms-2"></i>
+                                {% endif %}
+                            </button>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                
+            </div>
+            
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="addProductModal" data-bs-backdrop="false" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-right">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addProductModalLabel">Add Product</h5>
+                            <button type="button" class="btn-close custom-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="addProductForm" action="{{ url_for('products.add_products') }}" method="POST">
+                                <div class="mb-3">
+                                    <label for="productName" class="form-label">Product Name <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="productName" name="product_name" required>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="item" class="form-label">Item</label>
+                                        <input type="text" class="form-control" id="item" name="item">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="quantity" class="form-label">Quantity</label>
+                                        <input type="number" class="form-control" id="quantity" name="quantity">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="price" class="form-label">Price</label>
+                                        <input type="number" class="form-control" id="price" name="price">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="adjustedPrice" class="form-label">Adjusted Price</label>
+                                        <input type="number" class="form-control" id="adjustedPrice" name="adjusted_price">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="discount" class="form-label">Discount</label>
+                                        <input type="number" class="form-control" id="discount" name="discount">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="subTotal" class="form-label">Sub Total</label>
+                                        <input type="number" class="form-control" id="subTotal" name="sub_total">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="createdDate" class="form-label">Created Date</label>
+                                        <input type="date" class="form-control" id="createdDate" name="created_date">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="status" class="form-label">Status</label>
+                                        <input type="text" class="form-control" id="status" name="status">
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary w-100">Save</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+        <hr>
+        <!-- activity table Table -->
+        <div class="table-scroll-hover table-responsive px-4"  style="white-space: nowrap;">
+            <table class="table table-hover">
+                <thead>
+                    {% for header in product_table_headers %}
+                        <th scope="col">
+                            {% if header.checkbox %}
+                                <input class="form-check-input" type="checkbox">
+                            {% else %}
+                                {{ header.name }}
+                            {% endif %}
+                        </th>
+                    {% endfor %}
+                </thead>
+                <tbody>
+
+                    <!-- Table Data -->
+
+                    <tr>
+                        <td>
+                            <input class="form-check-input" type="checkbox">
+                        </td>
+                        <td>
+                            <i class="fa-solid fa-star text-warning"></i>
+                        </td>
+                        <td>HRMS</td>
+                        <td>100000</td>
+                        <td>1000000</td>
+                        <td>10000</td>
+                        <td>9,500</td>
+                        <td>10%</td>
+                        <td>1000000000</td>
+                        <td>23/03/2025</td>
+                        <td><span class="badge text-success">Progess</span></td>
+                        <td>
+                            <i class="fa-solid fa-ellipsis-v"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+</div>
+{% endblock %}

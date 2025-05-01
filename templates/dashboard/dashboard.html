@@ -1,0 +1,224 @@
+{% extends "home.html" %}
+
+{% block content %}
+<!-- Dashboard Section -->
+<div class="dashboard p-4 mt-5">
+    <!-- Dashboard Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h4 class="mb-0 heading">Dashboard</h4>
+        <div class="d-flex">
+            <div class="d-flex align-items-center border rounded bg-white px-3 py-2">
+                <i class="bi bi-calendar me-2"></i>
+                03/02/2025 - 03/03/2025
+            </div>
+            <button class="btn ms-2 border rounded bg-white px-3  d-flex align-items-center">
+                <i class="fi fi-rr-refresh" style="font-size: 14px;"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Stats Row -->
+    <div class="row flex-wrap mb-4">
+        <div class="col-lg-3 col-md-6 col-12 mb-3">
+            <div class="card dashboard-card shadow h-100">
+                <div class="card-body dash-card-body d-flex justify-content-between align-items-center ps-4">
+                    <div class="dashboard-card-content headings">
+                        <div class="small"><p>Total Employees</p></div>
+                        <div class="d-flex align-items-center">
+                            <h4 class="mb-0 fs-5">200</h4>
+                            <span class="badge percentage ms-2 small">+4%</span>
+                        </div>
+                    </div>
+                    <div class="stat-icon rounded">
+                        <i class="fi fi-rr-user"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-12 mb-3">
+            <div class="card dashboard-card shadow h-100">
+                <div class="card-body dash-card-body d-flex justify-content-between align-items-center ps-4">
+                    <div class="dashboard-card-content headings">
+                        <div class="small"><p>Total Companies</p></div>
+                        <div class="d-flex align-items-center">
+                            <h4 class="mb-0 fs-5">200</h4>
+                            <span class="badge percentage ms-2 small">+4%</span>
+                        </div>
+                    </div>
+                    <div class="stat-icon rounded">
+                        <i class="fi fi-rr-city"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-12 mb-3">
+            <div class="card dashboard-card shadow h-100">
+                <div class="card-body dash-card-body d-flex justify-content-between align-items-center ps-4">
+                    <div class="dashboard-card-content headings">
+                        <div class="small"><p>Total Products</p></div>
+                        <div class="d-flex align-items-center">
+                            <h4 class="mb-0 fs-5">200</h4>
+                            <span class="badge percentage ms-2 small">+4%</span>
+                        </div>
+                    </div>
+                    <div class="stat-icon rounded">
+                        <i class="fi fi-rr-box-open-full"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-6 col-12 mb-3">
+            <div class="card dashboard-card shadow h-100">
+                <div class="card-body dash-card-body d-flex justify-content-between align-items-center ps-4">
+                    <div class="dashboard-card-content headings">
+                        <div class="small"><p>Total Income</p></div>
+                        <div class="d-flex align-items-center">
+                            <h4 class="mb-0 fs-5">₹ 2,00,00,000</h4>
+                            <span class="badge percentage ms-2 small">+4%</span>
+                        </div>
+                    </div>
+                    <div class="stat-icon rounded">
+                        <i class="fi fi-rr-wallet-income"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Content Sections -->
+    <div class="row flex-wrap">
+        <!-- Opportunities Section -->
+        <div class="col-md-6 col-12 mb-4">
+            <div class="card border dashboard-content-section shadow px-2">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <div class="dropdown opportunities-dropdown">
+                        <div class="dropdown-toggle d-flex align-items-center headings">
+                            <span class="fw-semibold fs-5 me-2"><i class="fi fi-ss-angle-down"></i>Opportunities</span>
+                        </div>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Internships</a></li>
+                            <li><a class="dropdown-item" href="#">Job Offers</a></li>
+                            <li><a class="dropdown-item" href="#">Freelance Projects</a></li>
+                        </ul>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <input type="text" class="form-control form-control-sm me-2" value="03/02/2025">
+                        <button class="custom-plus-btn">
+                            <i class="fi fi-rr-plus-small custom-plus-icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body activity-scroll">
+                    <!-- Empty content for opportunities -->
+                    <!-- Opportunities Table -->
+                    <div class="table-responsive" style="white-space: nowrap;">
+                        <table class="table table-hover data-table-responsive" id="myTable">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Title</th>
+                                    <th>Type</th>
+                                    <th>Company</th>
+                                    <th>Status</th>
+                                    <th>Deadline</th>
+                                    <th>Location</th>
+                                    <th>Salary</th>
+                                    <th>Contact Person</th>
+                                    <th>Email</th>
+                                    <th>Notes</th>
+                                </tr>
+                            </thead>
+        
+                            <tbody>
+                            {% for i in range(20) %}
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Frontend Intern</td>
+                                    <td>Internship</td>
+                                    <td>CodeWave</td>
+                                    <td><span class="badge bg-success">Applied</span></td>
+                                    <td>10/03/2025</td>
+                                    <td>Bangalore</td>
+                                    <td>₹15,000</td>
+                                    <td>Ritika Sharma</td>
+                                    <td>ritika@codewave.in</td>
+                                    <td>Waiting for HR call</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+        
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Upcoming Activity Section -->
+        <!-- Upcoming Activity Section -->
+        <div class="col-md-6 col-12 mb-4">
+            <div class="card border dashboard-content-section shadow">
+                <div class="card-header d-flex justify-content-between align-items-center py-3">
+                    <span class="fw-semibold fs-5">Upcoming Activity</span>
+                    <button class="custom-plus-btn">+</button>
+                </div>
+                <div class="card-body activity-scroll"> <!-- Scroll enabled here -->
+
+                    <!-- 12/12/2025 -->
+                    <div class="text-secondary small mb-2 mt-2">12/12/2025</div>
+                    <div class="card mb-2">
+                        <div class="border rounded Upcoming-activity-border py-2 px-3 d-flex align-items-center">
+                            <div class="meeting-icon me-3 mt-2">
+                                <img src="https://cdn4.iconfinder.com/data/icons/logos-brands-in-colors/48/google-meet-1024.png" alt="Meeting Icon" style="width: 24px; height: 24px;">
+                            </div>
+                            <div class="small headings">Rachel Nguyen's Meeting - Product Development</div>
+                        </div>
+                    </div>
+                    <div class="card mb-2">
+                        <div class="border rounded Upcoming-activity-border py-2 px-3 d-flex align-items-center">
+                            <div class="meeting-icon me-3 mt-2">
+                                <img src="https://cdn4.iconfinder.com/data/icons/logos-brands-in-colors/48/google-meet-1024.png" alt="Meeting Icon" style="width: 24px; height: 24px;">
+                            </div>
+                            <div class="small headings">Marketing Sync - Q1 Goals</div>
+                        </div>
+                    </div>
+
+                    <!-- 13/12/2025 -->
+                    <div class="text-secondary small mb-2 mt-2">13/12/2025</div>
+                    <div class="card mb-2">
+                        <div class="border rounded Upcoming-activity-border py-2 px-3 d-flex align-items-center">
+                            <div class="meeting-icon me-3 mt-2">
+                                <img src="https://cdn4.iconfinder.com/data/icons/logos-brands-in-colors/48/google-meet-1024.png" alt="Meeting Icon" style="width: 24px; height: 24px;">
+                            </div>
+                            <div class="small headings">UI/UX Review Session</div>
+                        </div>
+                    </div>
+                    <div class="card mb-2">
+                        <div class="border rounded Upcoming-activity-border py-2 px-3 d-flex align-items-center">
+                            <div class="meeting-icon me-3 mt-2">
+                                <img src="https://cdn4.iconfinder.com/data/icons/logos-brands-in-colors/48/google-meet-1024.png" alt="Meeting Icon" style="width: 24px; height: 24px;">
+                            </div>
+                            <div class="small headings">Tech Talk - New Frameworks</div>
+                        </div>
+                    </div>
+
+                    <!-- 14/12/2025 -->
+                    <div class="text-secondary small mb-2 mt-2">14/12/2025</div>
+                    <div class="card mb-2">
+                        <div class="border rounded Upcoming-activity-border py-2 px-3 d-flex align-items-center">
+                            <div class="meeting-icon me-3 mt-2">
+                                <img src="https://cdn4.iconfinder.com/data/icons/logos-brands-in-colors/48/google-meet-1024.png" alt="Meeting Icon" style="width: 24px; height: 24px;">
+                            </div>
+                            <div class="small headings">All-Hands Company Meet</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+</div>
+{% endblock %}

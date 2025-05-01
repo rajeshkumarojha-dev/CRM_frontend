@@ -1,0 +1,227 @@
+{% extends "home.html" %}
+
+{% block content %}
+<div class="form-container shadow mx-4 p-4 details">
+    <div class="header px-4 pt-4">
+        <h4>Add Opportunities</h4>
+        <a href="{{ url_for('opportunity.opportunity') }}" 
+        class="close-btn px-2 rounded">
+            <i class="fas fa-times"></i>
+        </a>
+    </div>
+    <hr>
+    <form class='py-3'>
+        <div class="row flex-wrap mb-4 px-4">
+            <div class="col-md-6">
+                <label for="opportunitiesName" class="form-label required">Opportunities Name</label>
+                <input type="text" class="form-control" id="opportunitiesName" required>
+            </div>
+            <div class="col-md-6">
+                <label for="contact" class="form-label required">Contact</label>
+                <select class="form-select" id="contact" required>
+                    <option selected disabled value=""></option>
+                </select>
+            </div>
+        </div>
+
+        <div class="products-section px-4 py-4" style="background: var(--light-bg-color)" >
+            <div class="products-header d-flex justify-content-between">
+                <h5 class="fs-6 fw-bold mt-2">Products</h5>
+                <!-- Add Product Button -->
+                <button type="button" class="add-product-btn btn btn-primary mb-4" style="font-size:13px;" data-bs-toggle="modal" data-bs-target="#addProductModal">
+                    <i class="fas fa-plus text-white"></i> Add Product
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="addProductModal" data-bs-backdrop="false" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-right">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="addProductModalLabel">Add Product</h5>
+                                <button type="button" class="btn-close custom-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="addProductForm" action="{{ url_for('products.add_products') }}" method="POST">
+                                    <div class="mb-3">
+                                        <label for="productName" class="form-label">Product Name <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="productName" name="product_name" required>
+                                    </div>
+    
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="item" class="form-label">Item</label>
+                                            <input type="text" class="form-control" id="item" name="item">
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="quantity" class="form-label">Quantity</label>
+                                            <input type="number" class="form-control" id="quantity" name="quantity">
+                                        </div>
+                                    </div>
+    
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="price" class="form-label">Price</label>
+                                            <input type="number" class="form-control" id="price" name="price">
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="adjustedPrice" class="form-label">Adjusted Price</label>
+                                            <input type="number" class="form-control" id="adjustedPrice" name="adjusted_price">
+                                        </div>
+                                    </div>
+    
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="discount" class="form-label">Discount</label>
+                                            <input type="number" class="form-control" id="discount" name="discount">
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="subTotal" class="form-label">Sub Total</label>
+                                            <input type="number" class="form-control" id="subTotal" name="sub_total">
+                                        </div>
+                                    </div>
+    
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="createdDate" class="form-label">Created Date</label>
+                                            <input type="date" class="form-control" id="createdDate" name="created_date">
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="status" class="form-label">Status</label>
+                                            <input type="text" class="form-control" id="status" name="status">
+                                        </div>
+                                    </div>
+    
+                                    <button type="submit" class="btn btn-primary w-100">Save</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- Table- data -->
+            <div class="table-scroll-hover table-responsive"  style="white-space: nowrap;">
+                <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">
+                                    <input class="form-check-input" type="checkbox">
+                                </th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Item</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Cost</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Adjusted Price</th>
+                                <th scope="col">Discount</th>
+                                <th scope="col">Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+        
+                            <!-- Table Data -->
+        
+                            <tr>
+                                <td>
+                                    <input class="form-check-input" type="checkbox">
+                                </td>
+                                <td>HRMS</td>
+                                <td>121</td>
+                                <td>1</td>
+                                <td>1234</td>
+                                <td>1234</td>
+                                <td>987.00</td>
+                                <td>20</td>
+                                <td>987.00</td>
+                            </tr>
+                        </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row flex-wrap mb-4 p-4">
+            <div class="col-md-3">
+                <label for="total" class="form-label">Total</label>
+                <input type="text" class="form-control" id="total">
+            </div>
+            <div class="col-md-3">
+                <label for="weighted" class="form-label">Weighted</label>
+                <input type="text" class="form-control" id="weighted">
+            </div>
+            <div class="col-md-3">
+                <label for="probability" class="form-label">Probability</label>
+                <input type="text" class="form-control" id="probability">
+            </div>
+            <div class="col-md-3">
+                <label for="status" class="form-label">Status</label>
+                <select class="form-select" id="status">
+                    <option selected disabled value=""></option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row flex-wrap mb-4 p-4">
+            <div class="col-md-3">
+                <label for="openDate" class="form-label">Open Date</label>
+                <div class="date-input-group">
+                    <input type="text" class="form-control" id="openDate">
+                    <span class="date-icon">
+                        <i class="far fa-calendar"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label for="daysOpen" class="form-label">Days Open</label>
+                <input type="text" class="form-control" id="daysOpen">
+            </div>
+            <div class="col-md-3">
+                <label for="estCloseDate" class="form-label">Est Close Date</label>
+                <div class="date-input-group">
+                    <input type="text" class="form-control" id="estCloseDate">
+                    <span class="date-icon">
+                        <i class="far fa-calendar"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label for="actualCloseDate" class="form-label">Actual Close Date</label>
+                <div class="date-input-group">
+                    <input type="text" class="form-control" id="actualCloseDate">
+                    <span class="date-icon">
+                        <i class="far fa-calendar"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row flex-wrap p-4">
+            <div class="col-md-3">
+                <label for="processes" class="form-label">Processes</label>
+                <select class="form-select" id="processes">
+                    <option selected disabled value=""></option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="stages" class="form-label">Stages</label>
+                <select class="form-select" id="stages">
+                    <option selected disabled value=""></option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="daysInStages" class="form-label">Days in Stages</label>
+                <input type="text" class="form-control" id="daysInStages">
+            </div>
+            <div class="col-md-3">
+                <label for="association" class="form-label">Association</label>
+                <select class="form-select" id="association">
+                    <option selected disabled value=""></option>
+                </select>
+            </div>
+        </div>
+
+        <button type="submit" class="save-btn mx-4 btn btn-primary">Save</button>
+    </form>
+</div>
+
+{% endblock %}

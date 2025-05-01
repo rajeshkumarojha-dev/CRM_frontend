@@ -1,0 +1,193 @@
+{% extends "home.html" %}
+
+{% block content %}
+<!-- History Section -->
+<div class="contacts-section p-4 rounded mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div class="page-header d-flex align-items-center p-2">
+            <h4 class="mb-0 fs-4">History</h4>
+        </div>
+    </div>
+
+        <!-- Action Buttons -->
+    <div class="background-toggle action border rounded shadow-sm">
+
+        <div class="filter-scroll action-buttons d-flex flex-wrap justify-content-between gap-2 pt-3 px-4">
+            <!-- Left Side: Sort & Filter -->
+            <div class="responsive-filter d-flex justify-content-between align-item-center w-100">
+                <div class="d-flex">
+                    <a href="#" class="filter-form-button btn btn-outline-secondary d-flex align-items-center me-2" style="font-size: 12px;">
+                        <i class="fi fi-rr-filter me-2 mt-1"></i>
+                        <p class="mb-0">Filter</p>
+                    </a>
+                    <a href="#" class="filter-form-button btn btn-outline-secondary d-flex align-items-center me-2" style="font-size: 12px;">
+                        <i class="fi fi-rr-calendar-lines me-2 mt-1"></i>
+                        <p class="mb-0">03/02/2025 - 03/03/2025</p>
+                    </a>
+                </div>
+        
+                <!-- Right Side: Other Buttons -->
+                <div class="d-flex">
+                    <a href="#" class="filter-form-button btn btn-outline-secondary d-flex align-items-center me-2" style="font-size: 12px;">
+                        <i class="fi fi-rr-clip me-2 mt-1"></i>
+                        <p class="mb-0">Attach</p>
+                    </a>
+                    <a href="#" class="filter-form-button btn btn-outline-secondary d-flex align-items-center me-2" style="font-size: 12px;">
+                        <i class="fi fi-rr-download me-2 mt-1"></i>
+                        <p class="mb-0">Export</p>
+                        <i class="fa-solid fa-chevron-down ms-2"></i>
+                    </a>
+        
+                    <!-- Add History Button -->
+                    <a href="" class="button-bg d-flex filter-button btn-primary text-white" style="font-size:12px;" data-bs-toggle="modal" data-bs-target="#addHistoryModal">
+                        <p class="mb-0"><i class="fa-solid fa-plus me-2 mt-1"></i>Add History</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+
+        
+            
+            <!-- Add History Modal -->
+        <div class="modal fade shadow" id="addHistoryModal" data-bs-backdrop="false" tabindex="-1" aria-labelledby="addHistoryModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-right history-form">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addActivityModalLabel">Add History</h5>
+                        <button type="button" class="btn-close custom-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <!-- Activity Form -->
+                    <div class="modal-body">
+                        <form id="activityForm" method="POST" action="/add-activity">
+
+                            <div class="row">
+                                <div class="mb-3 col-md-6">
+                                    <label for="activityType" class="form-label">Activity Type</label>
+                                    <select class="form-select" id="activityType" name="activity_type" required>
+                                        <option value="">Select Type</option>
+                                        <option value="Call">Call</option>
+                                        <option value="Meeting">Meeting</option>
+                                        <option value="Email">Email</option>
+                                        <option value="Follow-up">Follow-up</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3 col-md-6">
+                                    <label for="relatedTo" class="form-label">Related To</label>
+                                    <input type="text" class="form-control" id="relatedTo" name="related_to" placeholder="Contact or Lead Name">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="mb-3 col-md-6">
+                                    <label for="assignedTo" class="form-label">Assigned To</label>
+                                    <select class="form-select" id="assignedTo" name="assigned_to">
+                                        <option value="">Select User</option>
+                                        <option value="Rajesh">Rajesh</option>
+                                        <option value="Amit">Amit</option>
+                                        <option value="Priya">Priya</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3 col-md-6">
+                                    <label for="activityDate" class="form-label">Date</label>
+                                    <input type="date" class="form-control" id="activityDate" name="activity_date" required>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="mb-3 col-md-6">
+                                    <label for="activityTime" class="form-label">Time</label>
+                                    <input type="time" class="form-control" id="activityTime" name="activity_time">
+                                </div>
+
+                                <div class="mb-3 col-md-6">
+                                    <label for="status" class="form-label">Status</label>
+                                    <select class="form-select" id="status" name="status">
+                                        <option value="Scheduled">Scheduled</option>
+                                        <option value="In Progress">In Progress</option>
+                                        <option value="Completed">Completed</option>
+                                        <option value="Cancelled">Cancelled</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="mb-3 col-md-6">
+                                    <label for="priority" class="form-label">Priority</label>
+                                    <select class="form-select" id="priority" name="priority">
+                                        <option value="Low">Low</option>
+                                        <option value="Medium">Medium</option>
+                                        <option value="High">High</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3 col-md-6">
+                                    <label for="activityNote" class="form-label">Note</label>
+                                    <textarea class="form-control" id="activityNote" name="note" rows="3" placeholder="Add any notes..."></textarea>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-end">
+                                <button type="submit" class="btn btn-primary">Save Activity</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    
+        <hr>
+        
+        <!-- activity table Table -->
+        <div class="table-scroll-hover table-responsive" style="white-space: nowrap;">
+            <table class="table table-hover" id="myTable">
+                <thead>
+                    <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Company</th>
+                        <th scope="col">Result</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Record Manager</th>
+                        <th scope="col">Invite</th>
+                        <th scope="col">Contact</th>
+                        <th scope="col">Documents</th>
+                        <th scope="col">Group</th>
+                        <th scope="col"></th> <!-- Empty column for actions or icons -->
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <!-- Table Data -->
+                    {% for i in range(30)  %}
+                    <tr>
+                        <td>03-08-2025</td>
+                        <td>10.00 a.m</td>
+                        <td>Wipro</td>
+                        <td>Contact Linked</td>
+                        <td>Paresh Mohanty</td>
+                        <td>1234567890</td>
+                        <td>30 minutes</td>
+                        <td>30 minutes</td>
+                        <td>Documents.pdf</td>
+
+                        <td>hi</td>
+                        <td>
+                            <i class="fa-solid fa-ellipsis-v"></i>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+</div>
+{% endblock %}

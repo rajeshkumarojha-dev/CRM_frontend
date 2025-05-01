@@ -1,0 +1,136 @@
+{% extends "contact/contact_detail.html" %}
+
+{% block contact_table %}
+
+
+<!-- Activities Section -->
+
+
+<div class="heading-scroll">
+    <div class="detail-headings">
+        <div class="pt-3">
+            <div class="contact-content-dropdown d-flex justify-content-between px-2">
+                <div class='d-flex align-item-center'>
+                    <h5 class='fw-bold ms-2 headings'>Activities</h5>
+                </div>
+                <!-- Filters -->
+                <div class="d-flex">
+                    <div class="me-2">
+                        <button class="btn btn-outline-secondary" type="button">
+                            <p class="mb-0" style='font-size:12px'>
+                                Dates <i class="fas fa-chevron-down ms-1"></i>
+                            </p>
+                        </button>
+                    </div>
+                    <div class="me-2">
+                        <button class="btn btn-outline-secondary" type="button">
+                            <p class="mb-0" style='font-size:12px'>
+                                Status <i class="fas fa-chevron-down ms-1"></i>
+                            </p>
+                        </button>
+                    </div>
+                    <div class="me-2">
+                        <button class="btn btn-outline-secondary" type="button">
+                            <p class="mb-0" style='font-size:12px'>
+                                Types <i class="fas fa-chevron-down ms-1"></i>
+                            </p>
+                        </button>
+                    </div>
+                    <div class="me-2">
+                        <button class="btn btn-outline-secondary" type="button">
+                            <p class="mb-0" style='font-size:12px'>
+                                Priorities <i class="fas fa-chevron-down ms-1"></i>
+                            </p>
+                        </button>
+                    </div>
+                
+                    <div class="ms-auto">
+                        <button class="btn btn-primary">
+                            <a href="#" class="text-white text-decoration-none">
+                                <p class="mb-0" style='font-size:12px'>
+                                    <i class="fas fa-plus me-1"></i> Add Activity
+                                </p>
+                            </a>
+                        </button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <hr>
+        <!-- contact-activity-Table -->
+
+        <div class="form height">
+        <!-- Contacts Table -->
+        <div class="data-table">
+            <div class="table-responsive" style="white-space: nowrap;">
+                <table class="table table-hover data-table-responsive" id="contactactivity">
+                    <thead>
+                        <tr>
+                            <th><input class="form-check-input" type="checkbox"></th>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Company</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Title</th>
+                            <th>Department</th>
+                            <th>Website</th>
+                            <th>Location</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                            <th>Actions</th>
+                            <th>Actions</th>
+                            <th>Actions</th>
+                            <th>Actions</th>
+                            <th>Actions</th>
+                            <th>Actions</th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for i in range(20)  %}
+                        <tr>
+                            <td><input class="form-check-input" type="checkbox"></td>
+                            <td><i class="fa-solid fa-star text-warning"></i></td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <a href="">
+                                        <img src="/static/Images/profile.png" class="rounded-circle me-2 profile" alt="Profile">
+             
+                                    </a>
+                                </div>
+                            </td>
+                            <td>hello</td>
+                            <td>hello</td>
+                            <td>hello</td>
+                            <td>hello</td>
+                            <td>hello</td>
+                            <td>hello</td>
+                            <td>hello</td>
+                            <td>hello</td>
+                            <td>hello</td>
+                            <td>hello</td>
+                            <td>hello</td>
+                            <td>hello</td>
+                            <td>hello</td>
+        
+
+
+                            <td><span class="badge bg-success"></span></td>
+                            <td><i class="fa-solid fa-ellipsis-v"></i></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>  
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
