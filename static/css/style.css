@@ -1184,6 +1184,7 @@ label {
     opacity: 0;
     max-height: 90vh;
     overflow-y: scroll;
+    padding-bottom: 60px;
   }
 
   .header-icons::-webkit-scrollbar {
